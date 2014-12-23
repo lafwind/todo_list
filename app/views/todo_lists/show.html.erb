@@ -1,0 +1,10 @@
+<h1>New item</h1>
+
+<% @todo_items.each do |item| %>
+  <p><%= item.content %></p>
+<% end %>
+
+<%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+  <%= f.text_field :content, placeholder: "New todo item" %>
+  <%= f.submit %>
+<% end %>

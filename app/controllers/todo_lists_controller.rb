@@ -18,9 +18,26 @@ class TodoListsController < ApplicationController
     end
   end
 
+  def edit
+    @todo_list = TodoList.find(params[:id])
+  end
+
+  def update
+    @todo_list = TodoList.find(params[:id])
+
+    if @todo_list.update(todo_list_params)
+      flash[:success] = "Update successfully!"
+      redirect_to todo_lists_path
+    else
+      flash[:error] = "Some errors here!"
+      render 'edit'
+    end
+  end
+
     private
 
     def todo_list_params
-      params[:todo_list].permit(:title, :description)
+      #params[:todo_list].permit(:title, :description)
+      params.require(:todo_list).permit(:title, :description)
     end
 end

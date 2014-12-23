@@ -3,4 +3,6 @@
 <% @todo_lists.each do |item| %>
   <p>Title: <%= item.title %></p>
   <p>Description: <%= item.description %></p>
+
+  <%= link_to "edit", edit_todo_list_path(item) %>
 <% end %>

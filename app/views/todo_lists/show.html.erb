@@ -2,6 +2,7 @@
 
 <% @todo_items.each do |item| %>
   <p><%= item.content %></p>
+  <%= link_to  "delete", todo_list_todo_item_path(@todo_list, item), method: :delete, data: { confirm: "Are you sure?!" } %>
 <% end %>
 
 <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>

@@ -14,6 +14,12 @@ class TodoItemsController < ApplicationController
       flash[:error] = "Some error here!"
       render 'new'
     end
+  end
 
+  def destroy
+    @todo_list = TodoList.find(params[:todo_list_id])
+    @todo_item = @todo_list.todo_items.find(params[:id])
+    @todo_item.destroy
+    redirect_to @todo_list
   end
 end

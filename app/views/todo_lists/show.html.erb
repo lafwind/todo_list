@@ -11,43 +11,41 @@
     </div>
   </div>
 
-      <!-- List group -->
-      <ul class="list-group">
-        <% @todo_items.each do |item| %>
-          <% if item.completed? %>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-md-10">
-                  <s style="opacity: 0.29;"><%= item.content %></s>
-                </div>
-                <div class="col-md-2 text-center">
-                <span style="opacity: 0.6;"><%= link_to  "", todo_list_todo_item_path(@todo_list, item), method: :delete, data: { confirm: "Are you sure?!" }, class: "glyphicon glyphicon-trash btn btn-default btn-xs" %></span>
-                <span style="opacity: 0.29;" class="glyphicon glyphicon-ok btn btn-default btn-xs"></span>
-              </div>
-              </div>
-            </li>
-          <% else %>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-md-10">
-              <%= item.content %>
-                </div>
-                <div class="col-md-2 text-center">
-              <span><%= link_to  "", todo_list_todo_item_path(@todo_list, item), method: :delete, data: { confirm: "Are you sure?!" }, class: "glyphicon glyphicon-trash btn btn-default btn-xs" %></span>
-              <span><%= link_to  "", todo_list_todo_item_path(@todo_list, item), method: :patch, class: "glyphicon glyphicon-ok btn btn-default btn-xs" %></span>
-              </div>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <div class="input-group">
-      <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
-        <%= f.text_field :content, placeholder: "New todo item", class: "form-control" %>
-        <span class="input-group-btn">
-          <%= f.submit "create", class: "btn btn-default" %>
-        </span>
+  <!-- List group -->
+  <ul class="list-group">
+    <% @todo_items.each do |item| %>
+      <% if item.completed? %>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-10">
+              <s style="opacity: 0.29;"><%= item.content %></s>
+            </div>
+            <div class="col-md-2 text-center">
+            <span style="opacity: 0.6;"><%= link_to  "", todo_list_todo_item_path(@todo_list, item), method: :delete, data: { confirm: "Are you sure?!" }, class: "glyphicon glyphicon-trash btn btn-default btn-xs" %></span>
+            <span style="opacity: 0.29;" class="glyphicon glyphicon-ok btn btn-default btn-xs"></span>
+          </div>
+          </div>
+        </li>
+      <% else %>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-10">
+          <%= item.content %>
+            </div>
+            <div class="col-md-2 text-center">
+          <span><%= link_to  "", todo_list_todo_item_path(@todo_list, item), method: :delete, data: { confirm: "Are you sure?!" }, class: "glyphicon glyphicon-trash btn btn-default btn-xs" %></span>
+          <span><%= link_to  "", todo_list_todo_item_path(@todo_list, item), method: :patch, class: "glyphicon glyphicon-ok btn btn-default btn-xs" %></span>
+          </div>
+        </li>
       <% end %>
-    </div>
-  </div>
+    <% end %>
+  </ul>
+</div>
+<div class="input-group">
+  <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+    <%= f.text_field :content, placeholder: "New todo item", class: "form-control" %>
+    <span class="input-group-btn">
+      <%= f.submit "create", class: "btn btn-default" %>
+    </span>
+  <% end %>
 </div>

@@ -8,10 +8,13 @@
 </head>
 <body>
 
+<%= render 'layouts/header' %>
 <div class="containner">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <%= yield %>
+        <hr>
+        <%= render 'layouts/footer' %>
       </div>
     </div>
 </div>

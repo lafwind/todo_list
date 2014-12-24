@@ -6,12 +6,12 @@
   <% end %>
 </div>
 
+<%= form_for(@todo_list) do |f| %>
 <div class="modal-body">
-  <%= form_for(@todo_list) do |f| %>
-    <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
-    <br />
+  <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
+  <br />
 
-    <%= f.text_area :description, class: "form-control", placeholder: "Description ... " %>
+  <%= f.text_area :description, class: "form-control", placeholder: "Description ... " %>
 </div>
 
 <div class="modal-footer">

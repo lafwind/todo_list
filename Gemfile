@@ -6,8 +6,11 @@ gem 'rails', '4.2.0.rc1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0'
-# Use Uglifier as compressor for JavaScript assets
+
+gem 'bootstrap-sass',       '3.2.0.0'
+# gem 'bootstrap-sass', '2.3.0.1'
+gem 'sprockets', '2.12.0'
+gem 'sass-rails',           '5.0.0.beta1'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
@@ -42,4 +45,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

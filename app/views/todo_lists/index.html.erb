@@ -21,5 +21,15 @@
   </div>
 
   <div class=" text-center">
-    <%= link_to 'New todo list', new_todo_list_path, class: "btn btn-default" %>
+    <%= link_to 'New todo list', new_todo_list_path, data: { toggle: "modal", target: "#modal" }, remote: true, class: "btn btn-default" %>
+    <%#= link_to 'New todo list', "#", data: {toggle: "modal", target: "#modal"}, class: "btn btn-default" %>
   </div>
+
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="new_todo_list_form">
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,13 +1,1 @@
-<h1>Edit: </h1>
-
-<%= form_for(@todo_list) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.submit "update" %>
-<% end %>
-
-<%= link_to 'back', todo_lists_path %>
+<%= render 'shared/form_for_new_todo_list'%>

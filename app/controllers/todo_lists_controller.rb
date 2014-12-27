@@ -14,11 +14,14 @@ class TodoListsController < ApplicationController
 
   def create
     @todo_list = TodoList.create(todo_list_params)
+
     if @todo_list.save
-      flash[:success] = "Well done!"
-      redirect_to todo_lists_path
+    respond_to do |format|
+      flash[:error] = "Create new todo list successfully!"
+      format.html { redirect_to todo_lists_path }
+      format.js
+    end
     else
-      flash[:error] = "Some errors here!"
       render 'new'
     end
   end
@@ -31,10 +34,12 @@ class TodoListsController < ApplicationController
     @todo_list = TodoList.find(params[:id])
 
     if @todo_list.update(todo_list_params)
-      flash[:success] = "Update successfully!"
-      redirect_to todo_lists_path
+      respond_to do |format|
+        flash[:success] = "Update successfully!"
+        format.html { redirect_to todo_lists_path }
+        format.js
+      end
     else
-      flash[:error] = "Some errors here!"
       render 'edit'
     end
   end

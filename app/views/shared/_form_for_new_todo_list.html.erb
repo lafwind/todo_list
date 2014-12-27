@@ -5,9 +5,13 @@
     <h4 class="modal-title" id="myModalLabel">Edit todo list</h4>
   <% end %>
 </div>
+<div class="error_list">
+</div>
 
-<%= form_for(@todo_list) do |f| %>
+<%= form_for(@todo_list, remote: true) do |f| %>
 <div class="modal-body">
+  <%= render 'shared/error_messages', object: f.object %>
+
   <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
   <br />
 
@@ -15,11 +19,11 @@
 </div>
 
 <div class="modal-footer">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <%= button_to "Back", todo_lists_path, data: { dismiss: "modal" }, class: "btn btn-default" %>
   <% if @todo_list.title.blank? %>
-    <%= f.submit "Create", class: "btn btn-primary"%>
+    <%= f.submit "Create", data: { remote: true }, class: "btn btn-primary"%>
   <% else %>
-    <%= f.submit "update", class: "btn btn-primary"%>
+    <%= f.submit "update", data: { remote: true }, class: "btn btn-primary"%>
   <% end %>
 </div>
 <% end %>

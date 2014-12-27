@@ -1,0 +1,12 @@
+<% if @todo_list.errors.any? %>
+  <% msgs = ""%>
+  <% @todo_list.errors.full_messages.each do |msg| %>
+
+    <% msg = msg.gsub("'", "no") %>
+    <% msgs += ("* #{msg}\\n") %>
+  <% end %>
+  alert("<%= msgs %>")
+
+<% else %>
+    window.location="<%= todo_lists_path %>"
+<% end %>

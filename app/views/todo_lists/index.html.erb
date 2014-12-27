@@ -1,34 +1,40 @@
-<h1>Todo List: </h1>
-
-  <div class="list-group">
-    <% @todo_lists.each do |item| %>
-
-      <span class="list-group-item">
-        <h4 class="list-group-item-heading"><%= item.title %></h4>
-        <div class="row">
-          <div class="col-md-9">
-            <p class="list-group-item-text" style="opacity: 0.6;"><%= item.description %></p>
-          </div>
-          <div class="col-md-3 text-center">
-            <%= link_to "", edit_todo_list_path(item), data: {toggle: "modal", target: "#modal", remote: true }, class: "glyphicon glyphicon-edit btn btn-default btn-xs" %>
-            <%= link_to "", todo_list_path(item), method: :delete, data: { confirm: "Are you sure?!" }, class: "glyphicon glyphicon-trash btn btn-default btn-xs" %>
-            <%= link_to "", todo_list_path(item), class: "glyphicon glyphicon-arrow-right btn btn-default btn-xs" %>
-          </div>
-        </div>
-      </span>
-
-    <% end %>
+<% flash.each do |key, value| %>
+  <div class="flass_messages">
+    <%= value %>
   </div>
+<% end %>
 
-  <div class=" text-center">
-    <%= link_to 'New todo list', new_todo_list_path, data: { toggle: "modal", target: "#modal", remote: true }, class: "btn btn-default" %>
-  </div>
+<div class="list-group">
+  <% @todo_lists.each do |item| %>
 
-  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="new_todo_list_form">
-        </div>
+    <span class="list-group-item">
+    <h4 class="list-group-item-heading"><%= item.title %></h4>
+    <div class="row">
+      <div class="col-md-9">
+        <p class="list-group-item-text" style="opacity: 0.6;"><%= item.description %></p>
+      </div>
+      <div class="col-md-3 text-center">
+        <%= link_to "", edit_todo_list_path(item), data: {toggle: "modal", target: "#modal", remote: true }, class: "glyphicon glyphicon-edit btn btn-default btn-xs" %>
+        <%= link_to "", todo_list_path(item), method: :delete, data: { confirm: "Are you sure?!" }, class: "glyphicon glyphicon-trash btn btn-default btn-xs" %>
+        <%= link_to "", todo_list_path(item), class: "glyphicon glyphicon-arrow-right btn btn-default btn-xs" %>
+      </div>
+    </div>
+  </span>
+
+<% end %>
+</div>
+<div class="new_todo_list">
+</div>
+
+<div class=" text-center">
+  <%= link_to 'New todo list', new_todo_list_path, data: { toggle: "modal", target: "#modal", remote: true }, class: "btn btn-default" %>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="new_todo_list_form">
       </div>
     </div>
   </div>
+</div>

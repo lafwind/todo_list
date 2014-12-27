@@ -7,12 +7,16 @@ class TodoItemsController < ApplicationController
   def create
     @todo_list = TodoList.find(params[:todo_list_id])
     @todo_item = @todo_list.todo_items.create(params[:todo_item].permit(:content))
-    if @todo_item.save
-      flash[:success] = "Well done!"
-      redirect_to @todo_list
-    else
-      flash[:error] = "Some error here!"
-      render 'new'
+    respond_to do |format|
+      if @todo_item.save
+        flash[:success] = "Well done!"
+        format.html { redirect_to @todo_list }
+        format.js
+      else
+        flash[:error] = "Some error here!"
+        format.html { render 'new' }
+        format.js
+      end
     end
   end
 
@@ -20,7 +24,11 @@ class TodoItemsController < ApplicationController
     @todo_list = TodoList.find(params[:todo_list_id])
     @todo_item = @todo_list.todo_items.find(params[:id])
     @todo_item.update_attribute(:completed_at, Time.now)
-    redirect_to @todo_list
+
+    respond_to do |format|
+      format.html { redirect_to @todo_list }
+      format.js
+    end
   end
 
   def destroy

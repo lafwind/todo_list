@@ -3,6 +3,8 @@ class TodoItem < ActiveRecord::Base
 
   validates :content, presence: true
 
+
+
   def completed?
     !completed_at.blank?
   end

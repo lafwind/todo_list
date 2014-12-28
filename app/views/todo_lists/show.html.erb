@@ -1,4 +1,8 @@
-
+<% flash.each do |key, value| %>
+  <div class="flass_messages">
+    <%= value %>
+  </div>
+<% end %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row">
@@ -41,11 +45,5 @@
     <% end %>
   </ul>
 </div>
-<div class="input-group">
-  <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
-    <%= f.text_field :content, placeholder: "New todo item", class: "form-control" %>
-    <span class="input-group-btn">
-      <%= f.submit "create", class: "btn btn-default" %>
-    </span>
-  <% end %>
-</div>
+
+<%= render 'shared/form_for_new_todo_item' %>

@@ -7,16 +7,18 @@ class TodoItemsController < ApplicationController
   def create
     @todo_list = TodoList.find(params[:todo_list_id])
     @todo_item = @todo_list.todo_items.create(params[:todo_item].permit(:content))
+    @todo_items = @todo_list.todo_items.all
     respond_to do |format|
       if @todo_item.save
-        flash[:success] = "Well done!"
-        format.html { redirect_to @todo_list }
+        flash[:success] = "Create new item successfully!"
         format.js
       else
-        flash[:error] = "Some error here!"
-        format.html { render 'new' }
+        #format.html { render 'new' }
+        flash[:success] = "Content cannot be blank!"
         format.js
       end
+        # format.html { redirect_to @todo_list }
+        format.html { render 'todo_lists/show', local: @todo_items }
     end
   end
 

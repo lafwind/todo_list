@@ -1,6 +1,62 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-  padding-top: 70px;
+
+.flash_messages_of_success {
+  margin: 10px 0px;
+  padding: 5px;
+  border: thin dashed green;
+}
+
+.flash_messages_of_errors {
+  margin: 10px 0px;
+  padding: 5px;
+  border: thin dashed red;
+}
+
+.header_box {
+  margin: 20px auto;
+  padding: 5px 269px;
+  border: none;
+}
+
+.header_title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: gray;
+  transition: 0.2s ease-out;
+  -moz-transition: 0.2s ease-out;
+  -webkit-transition: 0.2s ease-out;
+  -o-transition: 0.2s ease-out;
+}
+
+.header_title:hover {
+  transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  color: black;
+  text-decoration:none;
+}
+
+.header_title .header_line {
+  display: block;
+  position: absolute;
+  background: none;
+  left: 50%;
+  width: 0px;
+  height: 1px;
+  transition: 0.2s ease-out;
+  -moz-transition: 0.2s ease-out;
+  -webkit-transition: 0.2s ease-out;
+  -o-transition: 0.2s ease-out;
+}
+
+.header_title:hover .header_line {
+  background: black;
+  left: 0;
+  width: 100%;
 }

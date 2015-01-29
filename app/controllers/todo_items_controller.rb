@@ -14,11 +14,11 @@ class TodoItemsController < ApplicationController
         format.js
       else
         #format.html { render 'new' }
-        flash[:success] = "Content cannot be blank!"
+        flash[:errors] = "Content cannot be blank!"
         format.js
       end
-        # format.html { redirect_to @todo_list }
-        format.html { render 'todo_lists/show', local: @todo_items }
+        format.html { redirect_to @todo_list }
+        # format.html { render 'todo_lists/show', local: @todo_items }
     end
   end
 

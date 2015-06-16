@@ -4,6 +4,6 @@
 
 界面：
 
-* ![主页，TodoList列表](/public/image/main.png)
+![主页，TodoList列表](/public/image/main.png)
 
-* ![每个List的具体item](/public/image/item.png)
+![每个List的具体item](/public/image/item.png)
